@@ -9,6 +9,11 @@ function App() {
 
   const[songs, setSongs] = useState([]);
   const [filterBy, setFilterBy] = useState ('title');
+  const handleDeleteSong = (deletedSongId) => {
+    setSongs(songs.filter(song => song.id !== deletedSongId));
+  };
+
+  
 
   useEffect(() => {
     getAllSongs();
@@ -25,18 +30,16 @@ function App() {
   
   const filteredSongs = songs.sort((a, b) => a[filterBy].localeCompare(b[filterBy]));
 
- // App.js
-// ...
 return (
   <div>
     <FilterBar onFilterChange={handleFilterChange} />
     <div className="content-container">
-      <MusicTable songs={filteredSongs} />
-      <AddSongForm getAllSongs={getAllSongs} /> {/* Pass getAllSongs as a prop */}
+      <MusicTable songs={filteredSongs} onDeleteSong={handleDeleteSong}/>
+      <AddSongForm getAllSongs={getAllSongs} /> 
     </div>
   </div>
 );
-// ...
+
 
 }
 

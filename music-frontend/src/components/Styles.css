@@ -18,7 +18,7 @@
     margin-bottom: 20px;
   }
   
-  .music-table th,
+  .music-table th
   .music-table td {
     padding: 10px;
     text-align: left;
@@ -29,13 +29,7 @@
     background-color: #f2f2f2;
   }
   
-  .music-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .music-table tbody tr:hover {
-    background-color: #e0e0e0;
-  }
+
   
   
 body {
@@ -49,5 +43,15 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     margin: 20px;
+  }
+  
+  
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/public/background.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
   }
   

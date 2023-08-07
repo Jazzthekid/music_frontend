@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Styles.css';
+import './AddSongForm.css';
 
-function AddSongForm() {
+function AddSongForm({ getAllSongs }) {
   const [songData, setSongData] = useState({
     title: '',
     album: '',
@@ -16,11 +16,10 @@ function AddSongForm() {
     const { name, value } = event.target;
     setSongData({ ...songData, [name]: value });
   };
-
   const handleAddSong = async () => {
     try {
       await axios.post('http://127.0.0.1:8000/api/music/', songData);
-    
+      getAllSongs();
     } catch (error) {
       console.error('Error adding song:', error);
     }
