@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "music-frontend"
+		},
+		{
+			"path": "../../SocialFeed/SocialFeed/name-of-app/public"
+		}
+	],
+	"settings": {}
+}
