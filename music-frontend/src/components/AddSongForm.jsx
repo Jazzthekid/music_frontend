@@ -17,12 +17,16 @@ function AddSongForm({ getAllSongs }) {
     setSongData({ ...songData, [name]: value });
   };
   const handleAddSong = async () => {
+  
+    
     try {
-      await axios.post('http://127.0.0.1:8000/api/music/', songData);
+      let postSong = await axios.post('http://127.0.0.1:8000/api/music/', songData);
       getAllSongs();
+      return postSong.data
     } catch (error) {
       console.error('Error adding song:', error);
     }
+    
   };
 
   
@@ -33,30 +37,35 @@ function AddSongForm({ getAllSongs }) {
         type="text"
         name="title"
         placeholder="Title"
+        value={songData.title}
         onChange={handleInputChange}
       />
       <input
         type="text"S
         name="album"
         placeholder="Album"
+        value={songData.album}
         onChange={handleInputChange}
       />
       <input
         type="text"
         name="artist"
         placeholder="Artist"
+        value={songData.artist}
         onChange={handleInputChange}
       />
       <input
         type="text"
         name="genre"
         placeholder="Genre"
+        value={songData.genre}
         onChange={handleInputChange}
       />
       <input
         type="text"
         name="release_date"
         placeholder="Release Date"
+        value={songData.release_date}
         onChange={handleInputChange}
       />
       <button onClick={handleAddSong}>Add Song</button>
